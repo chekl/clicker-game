@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en|ua">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet" />
+    <title>Clicker Game</title>
+</head>
+
+<body>
+
+    <div class="gamestart">
+        <h1>ГОРИ МОСКВА</h1>
+        <div>
+            <label for="select">Мова гри:</label>
+            <select id="select">
+                <option value="ua">Українська</option>
+                <option value="eng">English</option>
+            </select>
+        </div>
+        <input class="btn" type="button" value="Почати" onclick="u()"/>
+    </div>
+
+    <template>
+        <div>
+            <h2>Створення користувача</h2>
+            <form action="">
+                <label for="select">Ім'я:</label>
+                <input id="userName" type="text" placeholder="Введіть ім'я..." />
+                <label for="select">Електронна пошта:</label>
+                <input id="userEmail" type="email" placeholder="Введіть е-пошту..." />
+                <p id="userError"></p>
+                <input type="button" value="Створити" onclick="createUser()" />
+            </form>
+        </div>
+    </template>
+
+    <template>
+        <div>
+            <h2>Правила гри</h2>
+            <p>Це гра-клікер, де треба бла блабала. Усього 5 рівнів</p>
+            <ul>
+                <li>Клікай на ворога, аби у нього віднімалося здоров'я</li>
+                <li>Якщо бачиш прапор УПА, то клікай на нього, аби збільшити рахунок</li>
+            </ul>
+            <input type="button" value="Почати гру" />
+        </div>
+    </template>
+
+    <template id="levelContainer">
+        <div>
+            <p>Ім'я:</p>
+            <p id="user"></p>
+            <p>Рахунок:</p>
+            <p id="score"></p>
+            <p>Рівень:</p>
+            <p id="levelNum"></p>
+            <p>Здоров'я:</p>
+            <p id="enemyHP"></p>
+        </div>
+        <div id="level">
+        </div>
+    </template>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
