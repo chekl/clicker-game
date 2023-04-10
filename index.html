@@ -14,58 +14,60 @@
 
 <body>
 
-    <div class="gamestart">
-        <h1>ГОРИ МОСКВА</h1>
-        <div>
-            <label for="select">Мова гри:</label>
-            <select id="select">
-                <option value="ua">Українська</option>
-                <option value="eng">English</option>
-            </select>
+     <div id="gameStart">
+        <div class="container">
+            <h1>ГОРИ МОСКВА</h1>
+            <div>
+                <label for="select">Мова гри:</label>
+                <select class="input" id="select">
+                    <option value="ua">Українська</option>
+                    <option value="eng">English</option>
+                </select>
+            </div>
+            <input class="btn" type="button" value="Почати" onclick="nextPage('gameStart','gameCreateUser')" />
         </div>
-        <input class="btn" type="button" value="Почати" onclick="u()"/>
     </div>
 
-    <template>
-        <div>
+
+    <div class="hidden-el" id="gameCreateUser">
+        <div class="container">
             <h2>Створення користувача</h2>
-            <form action="">
-                <label for="select">Ім'я:</label>
-                <input id="userName" type="text" placeholder="Введіть ім'я..." />
-                <label for="select">Електронна пошта:</label>
-                <input id="userEmail" type="email" placeholder="Введіть е-пошту..." />
-                <p id="userError"></p>
-                <input type="button" value="Створити" onclick="createUser()" />
-            </form>
+            <label for="userName">Ім'я:</label>
+            <input class="input" id="userName" type="text" placeholder="Введіть ім'я..." />
+            <label for="userEmail">Електронна пошта:</label>
+            <input class="input" id="userEmail" type="email" placeholder="Введіть е-пошту..." />
+            <p id="userError"></p>
+            <input class="btn" type="button" value="Створити" onclick="createUser()" />
         </div>
-    </template>
+    </div>
 
-    <template>
-        <div>
+    <div class="hidden-el" id="gameRules">
+        <div class="container">
             <h2>Правила гри</h2>
-            <p>Це гра-клікер, де треба бла блабала. Усього 5 рівнів</p>
+            <p>Це гра-клікер, де треба знищувати сучасних мострів, <br />
+                які остогидли усьому народу України. <br />
+                Набирайся хоробрості, та задай їм прочухана!
+            </p>
             <ul>
-                <li>Клікай на ворога, аби у нього віднімалося здоров'я</li>
-                <li>Якщо бачиш прапор УПА, то клікай на нього, аби збільшити рахунок</li>
+                <li>Усього гра налічує 5 рівнів.</li>
+                <li>Клікай на ворога, аби у нього зменшувалося здоров'я.</li>
+                <li>При оновлені все почнеться з початку.</li>
             </ul>
-            <input type="button" value="Почати гру" />
+            <p>Нехай щастить!</p>
+            <input id="startBtn" class="btn" type="button" value="Почати гру" onclick="" />
         </div>
-    </template>
+    </div> 
 
-    <template id="levelContainer">
-        <div>
-            <p>Ім'я:</p>
+     <div class="hidden-el" id="level-container">
+        <div class="level-bar">
             <p id="user"></p>
-            <p>Рахунок:</p>
             <p id="score"></p>
-            <p>Рівень:</p>
             <p id="levelNum"></p>
-            <p>Здоров'я:</p>
             <p id="enemyHP"></p>
         </div>
-        <div id="level">
+        <div id="enemy">
         </div>
-    </template>
+    </div> 
 
     <script src="index.js"></script>
 </body>

@@ -1,12 +1,12 @@
 const user = {
     name: '',
-    score: 0
+    score: 0,
+    level: 0
 }
 
-function u() {
-    var temp = document.getElementsByTagName("template")[0];
-  var clon = temp.content.cloneNode(true);
-  document.body.appendChild(clon);
+function nextPage(id, nextId) {
+    document.getElementById(`${id}`).style.display = "none";
+    document.getElementById(`${nextId}`).style.display = "block";
 }
 
 function isUserValid(name, email) {
@@ -23,54 +23,81 @@ function createUser() {
 
   if(validation) {
     user.name = userName;
+    nextPage('gameCreateUser','gameRules');
   } else {
-    document.getElementById("userError").innerHTML = "Перевірте чи поля заповнені та правильність написання пошти";
+    document.getElementById("userError").innerHTML = "Перевірте чи поля заповнені <br/> та правильність написання пошти";
   }
 }
 
 class Enemy {
-    constructor(name, hp, level, img, bgImg) {
-        this.name = name;
+    constructor(hp, img, bgImg, width, height, top, left) {
         this.hp = hp;
-        this.level = level;
         this.img = img;
         this.bgImg = bgImg;
+        this.width = width;
+        this.height = height;
+        this.top = top;
+        this.left = left;
     }
 
-    getLevel() {
-        return this.level;
-    }
+    getHP() { return this.hp; }
+    getImg() { return this.img; }
+    getBgImg() { return this.bgImg; }
+    getWidth() { return this.width; }
+    getHeight() { return this.height; }
+    getTop() { return this.top; }
+    getLeft() { return this.left; }
 
-    getHP() {
-        return this.hp;
-    }
-
-    getName() {
-        return this.name;
-    }
-
-    getBgImg() {
-        return this.bgImg;
-    }
-
-    damage() {
-        this.hp--;
-    } 
-
-    move() {
-
-    }
+    damage() { this.hp--; } 
 }
 
-let TV = new Enemy('TV', 5, 1, './images/tv.png', './images/bg-tv.jpg');
+let enemy1 = new Enemy(5, './images/tv.png', './images/bg-tv.jpg', "150px", "120px", "155px", "270px");
+let enemy2 = new Enemy(10, './images/troop.png', './images/bg-troop.jpg', "150px", "300px", "100px", "300px");
+let enemy3 = new Enemy(15, './images/ship.png', './images/bg-ship.jpg', "450px", "300px", "100px", "170px");
+let enemy4 = new Enemy(20, './images/putin.png', './images/bg-putin.jpeg', "175px", "250px", "40px", "320px");
+let enemy5 = new Enemy(1, './images/moskov.png', './images/bg-moskov.jpg', "450px", "350px", "0px", "150px");
+
+const enemies = [
+    enemy1,
+    enemy2,
+    enemy3,
+    enemy4,
+    enemy5
+  ];
 
 function level(user, enemy) {
-    document.getElementById('user').innerHTML = user.name;
-    document.getElementById('score').innerHTML = user.score;
-    document.getElementById('levelNum').innerHTML = enemy.getLevel();
-    document.getElementById('enemyHP').innerHTML = enemy.getHP();
+    document.getElementById('user').innerHTML = "Ім'я:" + user.name;
+    let score = document.getElementById('score');
+    score.innerHTML = "Рахунок:" + user.score;
+    document.getElementById('levelNum').innerHTML = "Рівень:" + Number(user.level + 1);
+    let enemyHP = document.getElementById('enemyHP');
+    enemyHP.innerHTML = "Здоров'я:" + enemy.getHP();
 
-    document.getElementById('levelContainer').style.background = `url(${enemy.getBgImg()})`;
+    document.getElementById('level-container').style.background = `url(${enemy.getBgImg()})`;
+    document.getElementById('level-container').style.backgroundSize = `cover`;
+    document.getElementById('enemy').style.background = `url(${enemy.getImg()})`;
+    document.getElementById('enemy').style.backgroundSize = `cover`;
+    document.getElementById('enemy').style.top = enemy.getTop();
+    document.getElementById('enemy').style.left = enemy.getLeft();
+    document.getElementById('enemy').style.height = enemy.getHeight();
+    document.getElementById('enemy').style.width = enemy.getWidth();
+
+
+    document.getElementById('enemy').addEventListener("click", function() {
+        enemy.damage();
+        user.score = user.score + 1;
+        enemyHP.innerHTML = "Здоров'я:" + enemy.getHP();
+        score.innerHTML = "Рахунок:" + user.score;
+        if(enemy.getHP() == 0) {
+            user.level++;
+            alert("Вітаю, Ви виграли!");
+            
+            level(user, enemies[user.level])
+        }
+    })
 }
 
-level(user, TV)
+document.getElementById('startBtn').addEventListener("click", function(){
+    nextPage('gameRules','level-container')
+    level(user, enemy1)
+})
