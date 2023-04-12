@@ -58,6 +58,7 @@ body {
     transform: translate(-50%, -35%);
     border: 10px ridge rgba(114, 114, 114, 0.8);
 }
+
 .level-bar {
     display: flex;
     width: 700px;
