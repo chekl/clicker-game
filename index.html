@@ -5,37 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- load font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- add icon to site -->
+    <link rel="icon" type="image/png" href="./images/icon.png">
+    <!-- load styles -->
     <link href="./index.css" rel="stylesheet" />
-    <title>Clicker Game</title>
+    <title>ГОРИ МОСКВА</title>
 </head>
 
 <body>
 
-     <div id="gameStart">
+    <div id="gameStart">
         <div class="container">
             <h1>ГОРИ МОСКВА</h1>
-            <div>
-                <label for="select">Мова гри:</label>
-                <select class="input" id="select">
-                    <option value="ua">Українська</option>
-                    <option value="eng">English</option>
-                </select>
-            </div>
             <input class="btn" type="button" value="Почати" onclick="nextPage('gameStart','gameCreateUser')" />
         </div>
     </div>
 
-
     <div class="hidden-el" id="gameCreateUser">
         <div class="container">
             <h2>Створення користувача</h2>
-            <label for="userName">Ім'я:</label>
-            <input class="input" id="userName" type="text" placeholder="Введіть ім'я..." />
-            <label for="userEmail">Електронна пошта:</label>
-            <input class="input" id="userEmail" type="email" placeholder="Введіть е-пошту..." />
+            <div class="input-container">
+                <label for="userName">Ім'я:</label>
+            <input id="userName" type="text" placeholder="Введіть ім'я..." />
+
+            </div>
+            <div class="input-container">
+                        <label for="userEmail">Е-пошта:</label>
+            <input id="userEmail" type="email" placeholder="Введіть е-пошту..." />
+
+            </div>
+
             <p id="userError"></p>
             <input class="btn" type="button" value="Створити" onclick="createUser()" />
         </div>
@@ -44,31 +47,33 @@
     <div class="hidden-el" id="gameRules">
         <div class="container">
             <h2>Правила гри</h2>
-            <p>Це гра-клікер, де треба знищувати сучасних мострів, <br />
-                які остогидли усьому народу України. <br />
+            <br />
+            <p>Це гра-клікер, де треба знищувати сучасних мострів,
+                які остогидли усьому народу України.
                 Набирайся хоробрості, та задай їм прочухана!
             </p>
+            <br />
             <ul>
                 <li>Усього гра налічує 5 рівнів.</li>
                 <li>Клікай на ворога, аби у нього зменшувалося здоров'я.</li>
                 <li>При оновлені все почнеться з початку.</li>
             </ul>
+            <br />
             <p>Нехай щастить!</p>
             <input id="startBtn" class="btn" type="button" value="Почати гру" onclick="" />
         </div>
-    </div> 
+    </div>
 
-     <div class="hidden-el" id="level-container">
+    <div class="hidden-el" id="level-container">
         <div class="level-bar">
             <p id="user"></p>
             <p id="score"></p>
             <p id="levelNum"></p>
             <p id="enemyHP"></p>
         </div>
-        <div id="enemy">
-        </div>
-    </div> 
-
+        <img alt="enemy" id="enemy" src="#" />
+    </div>
+    <!-- load javascript -->
     <script src="index.js"></script>
 </body>
 

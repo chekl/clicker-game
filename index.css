@@ -13,14 +13,14 @@ body {
 .container {
     position: absolute;
     top: 35%;
-  left: 50%;
-  -ms-transform: translate(-50%, -35%);
-  transform: translate(-50%, -35%);
+    left: 50%;
+    -ms-transform: translate(-50%, -35%);
+    transform: translate(-50%, -35%);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: max-content;
+    width: 400px;
     height: max-content;
     border: 3px solid black;
     padding: 20px;
@@ -30,6 +30,7 @@ body {
 .btn {
     background-color: transparent;
     padding: 0.5rem;
+    margin-top: 1rem;
 }
 
 .btn:hover {
@@ -40,8 +41,13 @@ body {
     background-color:rgb(232, 232, 232);
 }
 
-.input {
+.input-container {
+    margin: 1rem;
+}
+
+input {
     padding: 0.5rem;
+    border: 1px solid black;
 }
 
 .hidden-el {
@@ -71,6 +77,8 @@ body {
 
 #enemy {
 position: relative;
+height: max-content;
+width: max-content;
 } 
 
 #enemy:hover {
