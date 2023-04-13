@@ -19,4 +19,5 @@ When the player reaches the target number of clicks for a level, a message is di
 
 # How to use locale
 You need to load the project from this repository, open the folder with it, and double-click on index.html file.
-Also you can open it by this link - https://main--nimble-meerkat-1bb927.netlify.app/
+
+Also it can be opened on <a href="https://main--nimble-meerkat-1bb927.netlify.app/">link</a>.
