@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en|ua">
+<html lang="ua">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- load font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,35 +16,36 @@
 </head>
 
 <body>
-
     <div id="gameStart">
-        <div class="container">
+        <div class="container center-position">
             <h1>ГОРИ МОСКВА</h1>
-            <input class="btn" type="button" value="Почати" onclick="nextPage('gameStart','gameCreateUser')" />
+            <input class="btn" 
+                   type="button" 
+                   value="Почати" 
+                   onclick="nextPage('gameStart','gameCreateUser')"
+                   />
         </div>
     </div>
 
     <div class="hidden-el" id="gameCreateUser">
-        <div class="container">
+        <div class="container center-position">
             <h2>Створення користувача</h2>
             <div class="input-container">
                 <label for="userName">Ім'я:</label>
-            <input id="userName" type="text" placeholder="Введіть ім'я..." />
-
+                <input id="userName" type="text" placeholder="Введіть ім'я..." maxlength="7"/>
             </div>
+
             <div class="input-container">
-                        <label for="userEmail">Е-пошта:</label>
-            <input id="userEmail" type="email" placeholder="Введіть е-пошту..." />
-
+                <label for="userEmail">Е-пошта:</label>
+                <input id="userEmail" type="email" placeholder="Введіть е-пошту..." />
             </div>
-
             <p id="userError"></p>
             <input class="btn" type="button" value="Створити" onclick="createUser()" />
         </div>
     </div>
 
     <div class="hidden-el" id="gameRules">
-        <div class="container">
+        <div class="container center-position">
             <h2>Правила гри</h2>
             <br />
             <p>Це гра-клікер, де треба знищувати сучасних мострів,
@@ -64,14 +64,34 @@
         </div>
     </div>
 
-    <div class="hidden-el" id="level-container">
+    <div class="hidden-el center-position" id="level-container">
         <div class="level-bar">
-            <p id="user"></p>
-            <p id="score"></p>
-            <p id="levelNum"></p>
-            <p id="enemyHP"></p>
+            <p>Ім'я:<span id="user"></span></p>
+            <p>Рахунок:<span id="score"></span></p>
+            <p>Рівень:<span id="levelNum"></span></p>
+            <p>Здоров'я:<span id="enemyHP"></span></p>
         </div>
         <img alt="enemy" id="enemy" src="#" />
+    </div>
+
+    <div class="hidden-el" id="gameEnd">
+        <div class="container center-position">
+            <h2>Кінець гри</h2>
+            <br/>
+            <p>
+               Вітаю з проходженням!
+               Вороги були складні, але ти впорався.
+            </p>
+            <br/>
+            <p>Загальний рахунок:<span id="userTotalScore"></span></p>
+            <br/>
+            <p> Якщо хочеш почати гру спочатку, натискай кнопку!</p>
+            <input type="button" 
+                   class="btn" 
+                   value="Почати знову" 
+                   onclick="newGame(); nextPage('gameEnd','gameStart');"
+                   />
+        </div>
     </div>
     <!-- load javascript -->
     <script src="index.js"></script>
