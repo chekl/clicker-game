@@ -195,7 +195,7 @@ function userResult(score) {
   //remove enemy from view
   document.getElementById("enemy").setAttribute("src", "#")
 }
-
+ 
 //remove container with current user result
 function removeWinDiv() {
   //get container by id
