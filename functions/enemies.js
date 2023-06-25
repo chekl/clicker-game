@@ -30,9 +30,9 @@ function randomNum() {
   //create array with enemies
 export const createEnemies = () => [
     //(health, image of enemy, theme, position-top, position-left)
-    new Enemy('./images/tv.png', './images/bg-tv.jpg', '140px', '280px'),
-    new Enemy('./images/troop.png', './images/bg-troop.jpg', '100px', '300px'),
-    new Enemy('./images/ship.png', './images/bg-ship.jpg', '100px', '170px'),
-    new Enemy('./images/putin.png', './images/bg-putin.jpeg', '15px', '320px'),
-    new Enemy('./images/moskov.png', './images/bg-moskov.jpg', '0px', '150px'),
+    new Enemy('./images/tv.webp', './images/bg-tv.webp', '140px', '280px'),
+    new Enemy('./images/troop.webp', './images/bg-troop.webp', '100px', '300px'),
+    new Enemy('./images/ship.webp', './images/bg-ship.webp', '100px', '170px'),
+    new Enemy('./images/putin.webp', './images/bg-putin.webp', '15px', '320px'),
+    new Enemy('./images/moskov.webp', './images/bg-moskov.webp', '0px', '150px'),
 ];
