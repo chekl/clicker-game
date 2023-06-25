@@ -19,10 +19,10 @@
     <div id="gameStart">
         <div class="container center-position">
             <h1>ГОРИ МОСКВА</h1>
-            <input class="btn" 
+            <input id="btnGameStart"
+            class="btn" 
                    type="button" 
                    value="Почати" 
-                   onclick="nextPage('gameStart','gameCreateUser')"
                    />
         </div>
     </div>
@@ -40,7 +40,7 @@
                 <input id="userEmail" type="email" placeholder="Введіть е-пошту..." />
             </div>
             <p id="userError"></p>
-            <input class="btn" type="button" value="Створити" onclick="createUser()" />
+            <input id="btnGameCreateUser" class="btn" type="button" value="Створити" />
         </div>
     </div>
 
@@ -60,11 +60,11 @@
             </ul>
             <br />
             <p>Нехай щастить!</p>
-            <input id="startBtn" class="btn" type="button" value="Почати гру" onclick="" />
+            <input id="btnGameRules" class="btn" type="button" value="Почати гру" />
         </div>
     </div>
 
-    <div class="hidden-el center-position" id="level-container">
+    <div class="hidden-el center-position" id="levelContainer">
         <div class="level-bar">
             <p>Ім'я:<span id="user"></span></p>
             <p>Рахунок:<span id="score"></span></p>
@@ -85,16 +85,16 @@
             <br/>
             <p>Загальний рахунок:<span id="userTotalScore"></span></p>
             <br/>
-            <p> Якщо хочеш почати гру спочатку, натискай кнопку!</p>
-            <input type="button" 
+            <p>Якщо хочеш почати гру спочатку, натискай кнопку!</p>
+            <input id="btnGameEnd"
+            type="button" 
                    class="btn" 
                    value="Почати знову" 
-                   onclick="newGame(); nextPage('gameEnd','gameStart');"
                    />
         </div>
     </div>
     <!-- load javascript -->
-    <script src="index.js"></script>
+    <script src="./build/main.bundle.js"></script>
 </body>
 
 </html>
