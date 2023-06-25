@@ -8,10 +8,10 @@ const user = {
 
 //cheking for empty inputs and valid email
 function isUserValid(name, email) {
-  return name.trim() != '' &&
-    email.match(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/)
-    ? true
-    : false;
+  return (
+    name.toString().trim() != '' &&
+    email.toString().match(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/)
+  );
 }
 
 //manage error text
@@ -29,11 +29,10 @@ export function createUser() {
 
   //checking values
   let valid = isUserValid(name, email);
-
+  //set error text
+  createError(valid);
   //set values when validation is correct
   if (valid) {
     return { ...user, name, email };
   }
-  //set error text
-  createError(valid);
 }

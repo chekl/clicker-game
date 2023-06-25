@@ -17,7 +17,9 @@ document
 //user validation
 document.getElementById('btnGameCreateUser').addEventListener('click', () => {
   user = createUser();
-  nextPage('gameCreateUser', 'gameRules');
+  if(user) {
+   nextPage('gameCreateUser', 'gameRules'); 
+  }
 });
 
 //start game after page with rules
